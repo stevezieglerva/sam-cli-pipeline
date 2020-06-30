@@ -1,4 +1,5 @@
 *.code-workspace
 set_env.sh
+run_yaml.sh
 
 

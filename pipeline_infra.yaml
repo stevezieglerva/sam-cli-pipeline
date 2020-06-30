@@ -11,11 +11,9 @@ Parameters:
   RepositoryName:
     Description: GitHub repository name
     Type: String
-    Default: ops-aws-config-basic
     AllowedPattern: ".+"
   GitHubOwner:
     Type: String
-    Default: ICF-ITModernization
     AllowedPattern: ".+"
   GitHubOAuthToken:
     Type: String
@@ -514,7 +512,10 @@ Resources:
       ArtifactStore:
         Location: !Ref 'ArtifactsBucket'
         Type: S3
-      Name: "ops-aws-basic-config"
+      Name: !Join
+          - '-'
+          -  - !Ref 'AWS::StackName'
+             - "sam-cli"
       RoleArn: !GetAtt
       - CodePipelineTrustRole
       - Arn
