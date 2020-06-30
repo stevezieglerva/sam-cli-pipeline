@@ -561,30 +561,6 @@ Resources:
             - - !Ref 'AWS::StackName'
               - Build
           RunOrder: 1
-      - Name: EndToEndTest
-        Actions:
-        - ActionTypeId:
-            Category: Test
-            Owner: AWS
-            Provider: CodeBuild
-            Version: 1
-          Configuration:
-            ProjectName: !Join
-            - '-'
-            - - !Ref 'AWS::StackName'
-              - EndToEndTest
-          InputArtifacts:
-          - Name: !Join
-            - '-'
-            - - !Ref 'AWS::StackName'
-              - Build
-          Name: Test
-          OutputArtifacts:
-          - Name: !Join
-            - '-'
-            - - !Ref 'AWS::StackName'
-              - Test
-          RunOrder: 2
 
 
   ArtifactBucketPolicy:
