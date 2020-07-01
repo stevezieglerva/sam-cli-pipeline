@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Infrastructure to set up the build pipeline for the ops-aws-basic-config SAM app
+Description: Infrastructure to set up the build pipeline for the SAM app
 
 
 Parameters:
