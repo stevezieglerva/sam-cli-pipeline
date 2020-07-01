@@ -214,6 +214,7 @@ Resources:
           - s3:GetObjectVersion
           - s3:ListObjectsV2
           - s3:PutBucketPolicy
+          - s3:PutBucketNotification
           Effect: Allow
           Resource: 
           - !Join
