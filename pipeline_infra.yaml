@@ -220,8 +220,16 @@ Resources:
             - - 'arn:aws:s3:::'
               - !Ref 'ArtifactsBucket'
               - /*
-          - 'arn:aws:s3:::ops-aws*'
-          - 'arn:aws:s3:::ops-aws*/*'
+          - !Join
+            - ''
+            - - 'arn:aws:s3:::'
+              - !Ref 'AWS::StackName'
+              - '*'
+          - !Join
+            - ''
+            - - 'arn:aws:s3:::'
+              - !Ref 'AWS::StackName'
+              - '*/*'
         - Action:
           - kms:GenerateDataKey*
           - kms:Encrypt
