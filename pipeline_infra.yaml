@@ -24,6 +24,10 @@ Parameters:
     Type: String
     Default: ".*[cC]loud[tT]rail.*$|^.*ops-aws-[^f].*$|^.*Single.*$|^.*(stg|stage|dev|test|Dev|Test).*$|.*/aws/flowlogs.*"
     AllowedPattern: ".+"
+  S3BucketPrefix:
+    Description: Prefix of any S3 buckets created through the pipeline (used to set IAM persmissions)
+    Type: String
+    AllowedPattern: ".+"
 
 
 Resources:
@@ -223,12 +227,12 @@ Resources:
           - !Join
             - ''
             - - 'arn:aws:s3:::'
-              - !Ref 'AWS::StackName'
+              - !Ref 'S3BucketPrefix'
               - '*'
           - !Join
             - ''
             - - 'arn:aws:s3:::'
-              - !Ref 'AWS::StackName'
+              - !Ref 'S3BucketPrefix'
               - '*/*'
         - Action:
           - kms:GenerateDataKey*
