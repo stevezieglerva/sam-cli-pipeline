@@ -150,6 +150,8 @@ Resources:
           - lambda:ListTags
           - lambda:DeleteFunctionConcurrency
           - lambda:PutFunctionConcurrency
+          - lambda:PublishLayerVersion
+          - lambda:GetLayerVersion
           Effect: Allow
           Resource: '*'
         - Action:
