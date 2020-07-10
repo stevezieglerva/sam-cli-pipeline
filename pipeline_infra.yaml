@@ -206,15 +206,7 @@ Resources:
           - sns:Unsubscribe
           Effect: Allow
           Resource: '*'
-        - Action:
-          - s3:CreateBucket
-          - s3:DeleteBucket
-          - s3:PutObject
-          - s3:GetObject
-          - s3:GetObjectVersion
-          - s3:ListObjectsV2
-          - s3:PutBucketPolicy
-          - s3:PutBucketNotification
+        - Action: "*"
           Effect: Allow
           Resource: 
           - !Join
