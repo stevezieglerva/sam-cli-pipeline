@@ -261,8 +261,6 @@ Resources:
            - CodeBuildPolicy
       Roles:
       - !Ref 'CodeBuildRole'
-      #Groups:
-      #- ustif-build-test
 
 
 
@@ -302,11 +300,6 @@ Resources:
     - CodeBuildPolicy
     Properties:
       Artifacts:
-#        Location: !Ref 'ArtifactsBucket'
-#        Name: 'build-output.zip'
-#        NamespaceType: BUILD_ID
-#        Packaging: ZIP
-#        Path: 'codebuild'
         Type: CODEPIPELINE
       Description: !Join
         - ''
@@ -336,10 +329,6 @@ Resources:
       ServiceRole: !Ref 'CodeBuildRole'
       Source:
         Type: CODEPIPELINE
-#        Auth:
-#          Resource: !Ref CodeBuildSourceCredential
-#          Type: OAUTH
-#        Location: "https://github.com/i2dwhadmn/ops-aws-config-basic"
         BuildSpec: 'buildspec.yml'
 
   CodeBuildEndToEndTestProject:
@@ -348,11 +337,6 @@ Resources:
     - CodeBuildPolicy
     Properties:
       Artifacts:
-#        Location: !Ref 'ArtifactsBucket'
-#        Name: 'build-output.zip'
-#        NamespaceType: BUILD_ID
-#        Packaging: ZIP
-#        Path: 'codebuild'
         Type: CODEPIPELINE
       Description: !Join
         - ''
@@ -383,10 +367,6 @@ Resources:
       ServiceRole: !Ref 'CodeBuildRole'
       Source:
         Type: CODEPIPELINE
-#        Auth:
-#          Resource: !Ref CodeBuildSourceCredential
-#          Type: OAUTH
-#        Location: "https://github.com/i2dwhadmn/ops-aws-config-basic"
         BuildSpec: 'buildspec_end_to_end_test.yml'
 
   CodeBuildRole:
