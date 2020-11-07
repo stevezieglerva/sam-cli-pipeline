@@ -19,11 +19,6 @@ Parameters:
     Type: String
     NoEcho: true
     AllowedPattern: ".+"
-  ExcludeRegex:
-    Description: CloudWatch log group exclude regex
-    Type: String
-    Default: ".*[cC]loud[tT]rail.*$|^.*ops-aws-[^f].*$|^.*Single.*$|^.*(stg|stage|dev|test|Dev|Test).*$|.*/aws/flowlogs.*"
-    AllowedPattern: ".+"
   S3BucketPrefix:
     Description: Prefix of any S3 buckets created through the pipeline (used to set IAM persmissions)
     Type: String
@@ -320,9 +315,6 @@ Resources:
           - Name: "STACK_NAME"
             Type: PLAINTEXT
             Value: !Ref 'AWS::StackName'
-          - Name: "EXCLUDE_REGEX"
-            Type: PLAINTEXT
-            Value: !Ref 'ExcludeRegex'
       Name: !Join 
         - "-" 
         - - !Ref 'AWS::StackName'
@@ -345,7 +337,7 @@ Resources:
       Environment:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: aws/codebuild/standard:2.0
+        Image: aws/codebuild/standard:4.0
         ImagePullCredentialsType: CODEBUILD
         EnvironmentVariables:
           - Name: "ARTIFACT_S3_BUCKET"
@@ -357,9 +349,6 @@ Resources:
           - Name: "STACK_NAME"
             Type: PLAINTEXT
             Value: !Ref 'AWS::StackName'
-          - Name: "EXCLUDE_REGEX"
-            Type: PLAINTEXT
-            Value: !Ref 'ExcludeRegex'
       Name: !Join 
         - "-" 
         - - !Ref 'AWS::StackName'
