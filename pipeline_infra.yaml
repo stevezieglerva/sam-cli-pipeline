@@ -129,10 +129,6 @@ Resources:
           - dynamodb:*
           Effect: Allow
           Resource: !Sub "arn:aws:dynamodb:us-east-1:${AWS::AccountId}:table/${AWS::StackName}*"
-
-
-
-
         - Action:
           - lambda:ListFunctions
           - lambda:ListLayers
