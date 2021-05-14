@@ -127,6 +127,11 @@ Resources:
           Effect: Allow
           Resource: '*'
         - Action:
+          - dynamodb:DescribeTable
+          Effect: Allow
+          Resource: 
+          - !Sub "arn:aws:dynamodb:us-east-1:${AWS::AccountId}:*"
+        - Action:
           - dynamodb:*
           Effect: Allow
           Resource: 
