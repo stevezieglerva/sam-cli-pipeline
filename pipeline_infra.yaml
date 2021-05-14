@@ -135,7 +135,9 @@ Resources:
         - Action:
           - lambda:*
           Effect: Allow
-          Resource: !Sub "arn:aws:dynamodb:us-east-1:${AWS::AccountId}:function/${TargetStackName}*"
+          Resource: 
+          - !Sub "arn:aws:dynamodb:us-east-1:${AWS::AccountId}:function/${TargetStackName}*"
+          - !Sub "arn:aws:dynamodb:us-east-1:${AWS::AccountId}:layer/*"
         - Action:
           - events:PutRule
           - events:DeleteRule
