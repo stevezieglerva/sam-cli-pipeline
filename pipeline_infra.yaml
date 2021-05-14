@@ -137,7 +137,7 @@ Resources:
           Effect: Allow
           Resource: 
           - !Sub "arn:aws:lambda:us-east-1:${AWS::AccountId}:function/${TargetStackName}*"
-          - !Sub "arn:aws:lambda:us-east-1:${AWS::AccountId}:layer/*"
+          - !Sub "arn:aws:lambda:us-east-1:${AWS::AccountId}:layer:*"
         - Action:
           - events:PutRule
           - events:DeleteRule
