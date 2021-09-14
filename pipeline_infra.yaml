@@ -69,6 +69,7 @@ Resources:
                   - ec2:*
                   - codedeploy:*
                   - elasticloadbalancing:*
+                  - s3:*
                 Effect: Allow
                 Resource: "*"
           PolicyName: !Join
