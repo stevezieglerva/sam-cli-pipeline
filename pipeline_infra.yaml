@@ -276,6 +276,9 @@ Resources:
           - Name: "STACK_NAME"
             Type: PLAINTEXT
             Value: !Ref "AWS::StackName"
+          - Name: "TARGET_STACK_NAME"
+            Type: PLAINTEXT
+            Value: !Ref TargetStackName
       Name: !Join
         - "-"
         - - !Ref "AWS::StackName"
