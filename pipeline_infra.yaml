@@ -135,6 +135,11 @@ Resources:
               - !Sub "arn:aws:dynamodb:us-east-1:${AWS::AccountId}:table/${TargetStackName}*"
               - !Sub "arn:aws:dynamodb:us-east-1:${AWS::AccountId}:table/${TargetStackName}*/stream/*"
           - Action:
+              - lambda:CreateEventSourceMapping
+            Effect: Allow
+            Resource:
+              - "*"
+          - Action:
               - lambda:*
             Effect: Allow
             Resource:
