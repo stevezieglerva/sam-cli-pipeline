@@ -104,11 +104,7 @@ Resources:
             Effect: Allow
             Resource: "*"
           - Action:
-              - logs:CreateLogGroup
-              - logs:CreateLogStream
-              - logs:PutLogEvents
-              - logs:DescribeMetricFilters
-              - logs:FilterLogEvents
+              - logs:*
             Effect: Allow
             Resource: "*"
           - Action:
@@ -147,16 +143,15 @@ Resources:
               - !Sub "arn:aws:lambda:us-east-1:${AWS::AccountId}:function:${TargetStackName}*"
               - !Sub "arn:aws:lambda:us-east-1:${AWS::AccountId}:layer:*"
           - Action:
-              - events:PutRule
-              - events:DeleteRule
-              - events:RemoveTargets
-              - events:DescribeRule
-              - events:PutTargets
+              - events:*
             Effect: Allow
             Resource: "*"
           - Action:
-              - tag:GetResources
-              - tag:GetTagValues
+              - tag:*
+            Effect: Allow
+            Resource: "*"
+          - Action:
+              - apigateway:*
             Effect: Allow
             Resource: "*"
           - Action:
