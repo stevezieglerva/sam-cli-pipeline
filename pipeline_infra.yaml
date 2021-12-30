@@ -101,6 +101,7 @@ Resources:
               - iam:PutRolePolicy
               - iam:PutGroupPolicy
               - iam:DeleteGroupPolicy
+              - iam:TagResource
             Effect: Allow
             Resource: "*"
           - Action:
